@@ -7,7 +7,7 @@ import Card from '../../components/Grid/Card';
 
 function Home() {
 
-    const { state: { isLoading, currentPeople } } = usePeopleData();
+    const { state: { isLoading, currentPeople, currentPageNum } } = usePeopleData();
 
     const renderHTML = ()=>{
       if(isLoading) return <Loader />
@@ -19,11 +19,11 @@ function Home() {
             {
               currentPeople.map(character => <Card character={character} key={character.name} />)
             }
-          <Pagination />
           </Grid>
+          <Pagination page={currentPageNum}/>
         </>
       )
-    }    
+    }      
     
   return (
     <div className='container'>

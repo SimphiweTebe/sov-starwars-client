@@ -17,7 +17,6 @@ function Hero() {
   return (
     <StyledHero>
         <h1 className="title__big">Explore<br/> the Galaxy</h1>
-        <h3 className='title__small'>...not so far away</h3>
     </StyledHero>
   )
 }

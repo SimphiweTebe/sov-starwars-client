@@ -1,13 +1,37 @@
 import usePeopleData from '../../state/PeopleContext'
 import { ReducerActionType } from '../../types/types';
+import styled from "styled-components";
 
-function Pagination() {
+const StyledPagination = styled.div`
+  postion: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px 10px;
+  height: 80px;
+  width: 100%;
+  margin: 60px 0;
+
+  button{
+    padding: 10px 15px;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+`;
+
+type Props = {
+  page: string
+}
+
+function Pagination({ page }: Props) {
     
   const { dispatch } = usePeopleData();
 
   const changePage = (page: string) => {
-    const current = `page=${page}`    
-    dispatch({ type: ReducerActionType.CHANGE_PAGE, payload: current })
+    const selectedPage = `page=${page}`    
+    dispatch({ type: ReducerActionType.CHANGE_PAGE, payload: selectedPage })
   }
 
   const Buttons = [
@@ -22,12 +46,12 @@ function Pagination() {
     { id: "9"},
   ].map((button, i) => (
     <button key={button.id} onClick={(e)=> changePage(e.currentTarget.id)} id={button.id}>{button.id}</button>
-  ))
+  ))  
   
   return (
-    <div className="pagination">
+    <StyledPagination>
         { Buttons }
-    </div>
+    </StyledPagination>
   )
 }
 
