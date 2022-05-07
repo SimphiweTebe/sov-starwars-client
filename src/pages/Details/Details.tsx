@@ -15,6 +15,7 @@ const StyledCharacter = styled.div`
     padding: 0 30px;
     margin-top: 80px;
     width: 95%;
+    max-width: 1200px;
     margin: auto;
 
     p{
