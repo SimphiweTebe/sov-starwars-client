@@ -1,32 +1,32 @@
-import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import Pagination from './Pagination';
 import usePeopleData from '../../state/PeopleContext';
+import Hero from './Hero';
+import Grid from '../../components/Grid/Grid';
+import Card from '../../components/Grid/Card';
 
 function Home() {
 
-    const { state: { isLoading, currentPeople, currentPageNum } } = usePeopleData();
+    const { state: { isLoading, currentPeople } } = usePeopleData();
 
     const renderHTML = ()=>{
       if(isLoading) return <Loader />
-      // console.log(isLoading, currentPageNum);
       
       return (
-        <div className="people-grid">
-          {
-            currentPeople.map(p => (
-              <Link key={p.name} to={`/details/${p.name}`}>{p.name}</Link>
-            ))
-          }
+        <>
+          <Hero />
+          <Grid>
+            {
+              currentPeople.map(character => <Card character={character} key={character.name} />)
+            }
           <Pagination />
-          </div>
+          </Grid>
+        </>
       )
-    }
-    
+    }    
     
   return (
     <div className='container'>
-        <h1>Star Wars</h1>
         {
           renderHTML()
         }

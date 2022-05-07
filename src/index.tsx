@@ -4,10 +4,12 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloClient,  ApolloProvider, InMemoryCache} from '@apollo/client';
 
+import './sass/index.scss';
+
 import App from './components/App';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5000/api',
+  uri: 'https://startwars-apollo-server.herokuapp.com/api',
   cache: new InMemoryCache()
 });
 
