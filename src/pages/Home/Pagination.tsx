@@ -1,22 +1,32 @@
-import React from 'react'
-import usePeople from '../../state/PeopleContext';
+import usePeopleData from '../../state/PeopleContext'
+import { ReducerActionType } from '../../types/types';
 
 function Pagination() {
+    
+  const { dispatch } = usePeopleData();
 
-    // const { paginate } = usePeople();
+  const changePage = (page: string) => {
+    const current = `page=${page}`    
+    dispatch({ type: ReducerActionType.CHANGE_PAGE, payload: current })
+  }
 
+  const Buttons = [
+    { id: "1"},
+    { id: "2"},
+    { id: "3"},
+    { id: "4"},
+    { id: "5"},
+    { id: "6"},
+    { id: "7"},
+    { id: "8"},
+    { id: "9"},
+  ].map((button, i) => (
+    <button key={button.id} onClick={(e)=> changePage(e.currentTarget.id)} id={button.id}>{button.id}</button>
+  ))
+  
   return (
-    <div className="grid">
-      Pagination
-        {/* <button id="1" onClick={(e)=> paginate(e.currentTarget.id)}>1</button>
-        <button id="2" onClick={(e)=> paginate(e.currentTarget.id)}>2</button>
-        <button id="3" onClick={(e)=> paginate(e.currentTarget.id)}>3</button>
-        <button id="4" onClick={(e)=> paginate(e.currentTarget.id)}>4</button>
-        <button id="5" onClick={(e)=> paginate(e.currentTarget.id)}>5</button>
-        <button id="6" onClick={(e)=> paginate(e.currentTarget.id)}>6</button>
-        <button id="7" onClick={(e)=> paginate(e.currentTarget.id)}>7</button>
-        <button id="8" onClick={(e)=> paginate(e.currentTarget.id)}>8</button>
-        <button id="9" onClick={(e)=> paginate(e.currentTarget.id)}>9</button> */}
+    <div className="pagination">
+        { Buttons }
     </div>
   )
 }

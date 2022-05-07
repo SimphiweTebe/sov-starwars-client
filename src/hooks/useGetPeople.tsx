@@ -1,5 +1,5 @@
 import {gql, useQuery } from '@apollo/client';
-import { IPeopleResults, People } from '../types/types';
+import { IPeopleResults } from '../types/types';
 
 const GET_PEOPLE = gql`
     query fetchPeople($page: String!){
@@ -15,9 +15,7 @@ const GET_PEOPLE = gql`
 `;
 
 export const useGetPeople = (page: string): IPeopleResults =>{
-    const {error, loading, data} = useQuery(GET_PEOPLE, { variables: { page }})
-    // console.log(data, loading, error);
-    // console.log("Running in hook");
+    const {loading, data} = useQuery(GET_PEOPLE, { variables: { page }})
     return {loading, data}
 }
 

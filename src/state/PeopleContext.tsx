@@ -1,15 +1,17 @@
-import React, { createContext, useReducer, useContext, useEffect } from "react";
+import React, { createContext, useReducer, useContext, useEffect} from "react";
 import peopleReducer, { initialState } from "./peopleReducer";
 import { useGetPeople } from "../hooks/useGetPeople";
-import { ReducerActionType } from '../types/types';
+import { initialStateType, ReducerAction, ReducerActionType } from '../types/types';
 
 type PeopleProviderProps = {
     children: React.ReactNode
 }
+const PeopleContext = createContext<{ state: initialStateType; dispatch: React.Dispatch<ReducerAction>; }>({
+    state: initialState,
+    dispatch: () => null
+  });
 
-const PeopleContext = createContext(initialState);
-
-export const PeopleProvider = ({ children } : PeopleProviderProps) => {
+export const PeopleProvider: React.FC<PeopleProviderProps> = ({ children }) => {
 
     const [state, dispatch] = useReducer(peopleReducer, initialState);
     const { data, loading } = useGetPeople(state.currentPageNum)
@@ -23,22 +25,7 @@ export const PeopleProvider = ({ children } : PeopleProviderProps) => {
 
     },[data, loading ]) 
 
-    const paginate = (page: string) => {
-        const pageNum = `page=${page}`;
-        dispatch({
-            type: ReducerActionType.CHANGE_PAGE,
-            payload: pageNum
-        })
-    }
-    
-    const value = {
-        currentPeople: state.currentPeople,
-        currentPageNum: state.currentPageNum,
-        isLoading: state.isLoading,
-        paginate
-    }
-
-    return <PeopleContext.Provider value={value}>{children}</PeopleContext.Provider>
+    return <PeopleContext.Provider value={{state, dispatch}}>{children}</PeopleContext.Provider>
 }
 
 const usePeopleData = () => {

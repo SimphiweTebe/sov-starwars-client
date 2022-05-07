@@ -3,7 +3,6 @@ export interface initialStateType {
     currentPeople: Person[]
     currentPageNum: string
     isLoading: boolean,
-    // paginate: (page: string) => string
 }
 
 export type Person = {
@@ -37,10 +36,6 @@ export enum ReducerActionType {
     GET_PEOPLE,
     CHANGE_PAGE,
     IS_LOADING
-}
-
-export type Paginates = {
-    
 }
 
 export type LoadingSatus = {

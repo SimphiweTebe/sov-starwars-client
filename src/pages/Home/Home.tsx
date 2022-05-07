@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import Pagination from './Pagination';
-import usePeople from '../../state/PeopleContext';
+import usePeopleData from '../../state/PeopleContext';
 
 function Home() {
 
-    const {  isLoading, currentPeople } = usePeople();
-    console.log(currentPeople);
+    const { state: { isLoading, currentPeople, currentPageNum } } = usePeopleData();
 
     const renderHTML = ()=>{
       if(isLoading) return <Loader />
+      // console.log(isLoading, currentPageNum);
       
       return (
         <div className="people-grid">
@@ -22,6 +22,7 @@ function Home() {
           </div>
       )
     }
+    
     
   return (
     <div className='container'>
