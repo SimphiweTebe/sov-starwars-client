@@ -9,7 +9,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Tech Stack
 
-- CRA using a typescript template
+- Create React App with Typescript
 - Apollo client
 - Styled components
-- Hooks: Context and useReducer
+- Hooks: Custom, Context API and useReducer
