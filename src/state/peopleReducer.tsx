@@ -1,4 +1,3 @@
-// import { Reducer } from 'react';
 import { ReducerActionType, initialStateType, ReducerAction} from '../types/types'
 
 export const initialState = {
@@ -10,8 +9,7 @@ export const initialState = {
         homeworld: "",
     }],
     currentPageNum: "page=3",
-    isLoading: false,
-    // paginate: (val: string) => val
+    isLoading: false
 }
 
 

@@ -14,7 +14,6 @@ const GET_PEOPLE = gql`
 
 export const useSearchPeople = (name: string | undefined) => {
     const {error, loading, data} = useQuery(GET_PEOPLE, { variables:{ name } })
-    console.log(data);
     return { error, loading, data}
 }
 
