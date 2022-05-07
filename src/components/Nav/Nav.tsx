@@ -4,7 +4,9 @@ import styled from 'styled-components';
 const StyledNav = styled.nav`
     display: flex;
     position: relative;
-    width: 100%;
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
     height: 120px;
     align-items: center;
     justify-content: space-between;
@@ -18,13 +20,13 @@ const StyledNav = styled.nav`
 
 const Header = ()=> {
   return (
-    <header className='container'>
+    <>
         <StyledNav>
           <Link to="/">
             <img src={require('../../assets/logo/logo_gold.png')} alt="Main logo" />
           </Link>
         </StyledNav>
-    </header>
+    </>
   )
 }
 

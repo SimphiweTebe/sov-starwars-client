@@ -14,6 +14,8 @@ const StyledCharacter = styled.div`
     background-color: rgba(0,0,0,.7);
     padding: 0 30px;
     margin-top: 80px;
+    width: 95%;
+    margin: auto;
 
     p{
         font-size: 1.6rem;

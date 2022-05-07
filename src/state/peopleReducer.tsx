@@ -8,7 +8,7 @@ export const initialState = {
         gender: "",
         homeworld: "",
     }],
-    currentPageNum: "page=3",
+    currentPageNum: "page=1",
     isLoading: false
 }
 
@@ -23,8 +23,7 @@ const peopleReducer = (state: initialStateType, action: ReducerAction ) =>{
                 isLoading: action.payload
             }
 
-        case ReducerActionType.GET_PEOPLE:
-            
+        case ReducerActionType.GET_PEOPLE:  
             return {
                 ...state,
                 currentPeople: action.payload

@@ -6,7 +6,7 @@ import Header from './Nav/Nav';
 
 function App() {
   return (
-    <div className="container">
+    <>
       <PeopleProvider>
         <Header />
         <Routes>
@@ -14,7 +14,7 @@ function App() {
           <Route path="/details/:name" element={<Details />} />
         </Routes>
       </PeopleProvider>
-    </div>
+    </>
   );
 }
 

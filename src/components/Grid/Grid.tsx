@@ -3,10 +3,15 @@ import styled from 'styled-components';
 
 const StyledGrid = styled.div`
     position: relative;
+    min-height: 20vh;
+    width: 100%;
     margin: 0 auto 40px;
-    display: grid;
-    gap: 15px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    @media screen and (min-width: 600px){
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
 `;
 
 type Props = {
