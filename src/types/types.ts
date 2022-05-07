@@ -30,7 +30,7 @@ export interface IPeopleResults {
     data: { page_people: IPeople }
 }
 
-//REDUCER STUFF
+//PEOPLE REDUCER TYPES
 
 export enum ReducerActionType {
     GET_PEOPLE,
